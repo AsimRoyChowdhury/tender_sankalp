@@ -1,9 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:tender_sankalp/data/ecl_tender_data.dart';
 import 'package:tender_sankalp/tenders_list/tender_item.dart';
+import 'package:tender_sankalp/tenders_list/tender_list.dart';
 
-class Tenders extends StatelessWidget {
+class Tenders extends StatefulWidget {
   const Tenders({super.key});
+
+  @override
+  State<Tenders> createState() {
+    return _TendersState();
+  }
+}
+
+class _TendersState extends State<Tenders> {
+  late ECLTenderData _tenderData;
+
+  @override
+  void initState() {
+    super.initState();
+    _tenderData = ECLTenderData();
+    _loadData();
+  }
+
+  Future<void> _loadData() async {
+    await _tenderData.getData();
+    setState(() {});
+  }
+
+  Widget loading() {
+    return const Center(child: CircularProgressIndicator(),);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,22 +62,17 @@ class Tenders extends StatelessWidget {
           ),
         ],
       ),
-      body: const Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Expanded(
-              child: TenderItem(),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            Expanded(
+              child: _tenderData.ecltenderinfo.isNotEmpty
+                  ? TenderList(tenders: _tenderData.ecltenderinfo)
+                  : loading(),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Expanded(
-              child: TenderItem(),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
