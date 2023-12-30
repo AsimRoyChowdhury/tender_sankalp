@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:share_plus/share_plus.dart';
 import 'package:tender_sankalp/models/tender.dart';
 import 'package:url_launcher/link.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -19,6 +20,7 @@ class TenderItem extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 tender.tendernumber,
@@ -27,12 +29,18 @@ class TenderItem extends StatelessWidget {
                     color: Colors.black,
                     fontWeight: FontWeight.w600),
               ),
+              SizedBox(
+                height: 10,
+              ),
               Text(
                 tender.title,
                 style: GoogleFonts.poppins(
                     fontSize: 18,
                     color: Colors.deepOrangeAccent,
                     fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                height: 20,
               ),
               // Row(
               //   children: [
@@ -70,7 +78,8 @@ class TenderItem extends StatelessWidget {
               //     ),
               //   ],
               // ),
-              Row(
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'Last Date of Sub:',
@@ -91,7 +100,11 @@ class TenderItem extends StatelessWidget {
                   ),
                 ],
               ),
-              Row(
+              SizedBox(
+                height: 10,
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'Date of Opening: ',
@@ -121,25 +134,27 @@ class TenderItem extends StatelessWidget {
                         Colors.deepOrange[500],
                       ),
                     ),
-                    onPressed: () {},
-                    icon: const Icon(Icons.star_border_rounded),
+                    onPressed: () async {
+                      await Share.share(tender.link);
+                    },
+                    icon: const Icon(Icons.share),
                     color: Colors.amber[200],
                   ),
                   Row(
                     children: [
-                      TextButton(
-                        style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStatePropertyAll(Colors.blue[400])),
-                        onPressed: () {},
-                        child: Text(
-                          'Notify Me'.toUpperCase(),
-                          style: GoogleFonts.poppins(color: Colors.white),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 4,
-                      ),
+                      // TextButton(
+                      //   style: ButtonStyle(
+                      //       backgroundColor:
+                      //           MaterialStatePropertyAll(Colors.blue[400])),
+                      //   onPressed: () {},
+                      //   child: Text(
+                      //     'Notify Me'.toUpperCase(),
+                      //     style: GoogleFonts.poppins(color: Colors.white),
+                      //   ),
+                      // ),
+                      // const SizedBox(
+                      //   width: 4,
+                      // ),
                       Link(
                         uri: Uri.parse(tender.link),
                         target: LinkTarget.self,
