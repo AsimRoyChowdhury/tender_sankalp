@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tender_sankalp/data/ecl_tender_data.dart';
-import 'package:tender_sankalp/tenders_list/tender_item.dart';
+// import 'package:tender_sankalp/tenders_list/tender_item.dart';
 import 'package:tender_sankalp/tenders_list/tender_list.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -92,7 +92,7 @@ class _TendersState extends State<Tenders> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 80,
                   ),
                   Text(
@@ -103,15 +103,15 @@ class _TendersState extends State<Tenders> {
                         fontWeight: FontWeight.bold,
                         letterSpacing: 2.5),
                   ),
-                  Divider(
+                  const Divider(
                     thickness: 2,
                     color: Colors.white,
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   TextButton(
-                    style: ButtonStyle(
+                    style: const ButtonStyle(
                       shape: MaterialStatePropertyAll(
                         RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(Radius.zero)),
@@ -125,8 +125,9 @@ class _TendersState extends State<Tenders> {
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
-                        Icon(Icons.star_rate_rounded, color: Colors.white),
-                        SizedBox(
+                        const Icon(Icons.star_rate_rounded,
+                            color: Colors.white),
+                        const SizedBox(
                           width: 12,
                         ),
                         Text(
@@ -145,7 +146,7 @@ class _TendersState extends State<Tenders> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TextButton(
-                    style: ButtonStyle(
+                    style: const ButtonStyle(
                         padding:
                             MaterialStatePropertyAll(EdgeInsets.only(left: 0))),
                     onPressed: () {
@@ -170,7 +171,7 @@ class _TendersState extends State<Tenders> {
                       ],
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Text(

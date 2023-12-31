@@ -25,62 +25,22 @@ class ECLTenderData {
               "${datas[(i * 7) + 4].split('<')[1].split('>')[1]} ${datas[(i * 7) + 4].split('<')[3].split('>')[1]}",
           dateofopening:
               "${datas[(i * 7) + 5].split('<')[1].split('>')[1]} ${datas[(i * 7) + 5].split('<')[3].split('>')[1]}",
-          link: "https://secureloginecl.co.in/tenders/tender_details.php?pid=6&id=${datas[(i * 7) + 6].split('=')[7].split("'")[0]}",
+          link:
+              "https://secureloginecl.co.in/tenders/tender_details.php?pid=6&id=${datas[(i * 7) + 6].split('=')[7].split("'")[0]}",
         );
         ecltenderinfo.add(val);
       } else {
         Tender val = Tender(
           tendernumber: datas[(i * 7) + 1].split('<')[1].split('>')[1],
           title: datas[(i * 7) + 2].split('<')[0],
-          lastdateofsub:
-              datas[(i * 7) + 4].split('<')[1].split('>')[1],
+          lastdateofsub: datas[(i * 7) + 4].split('<')[1].split('>')[1],
           dateofopening:
               "${datas[(i * 7) + 5].split('<')[1].split('>')[1]} ${datas[(i * 7) + 5].split('<')[3].split('>')[1]}",
-          link: "https://secureloginecl.co.in/tenders/tender_details.php?pid=6&id=${datas[(i * 7) + 6].split('=')[7].split("'")[0]}",
+          link:
+              "https://secureloginecl.co.in/tenders/tender_details.php?pid=6&id=${datas[(i * 7) + 6].split('=')[7].split("'")[0]}",
         );
         ecltenderinfo.add(val);
       }
-      // ecltenderinfo[i].tendernumber =
-      //     datas[(i * 7) + 1].split('<')[1].split('>')[1];
-      // ecltenderinfo[i].title = datas[(i * 7) + 2].split('<')[0];
-      // if (datas[(i * 7) + 4].split('<').length > 3) {
-      //   ecltenderinfo[i].lastdateofsub =
-      //       "${datas[(i * 7) + 4].split('<')[1].split('>')[1]} ${datas[(i * 7) + 4].split('<')[3].split('>')[1]}";
-      // } else {
-      //   ecltenderinfo[i].lastdateofsub =
-      //       datas[(i * 7) + 4].split('<')[1].split('>')[1];
-      // }
-      // ecltenderinfo[i].dateofopening =
-      //     "${datas[(i * 7) + 5].split('<')[1].split('>')[1]} ${datas[(i * 7) + 5].split('<')[3].split('>')[1]}";
     }
-    //   final titles = html
-    //       .querySelectorAll(
-    //           'body > table > tbody > tr:nth-child(3) > td > table:nth-child(5) > tbody > tr:nth-child(2) > td:nth-child(3)')
-    //       .map((e) => e.innerHtml.trim())
-    //       .toList();
-
-    // final lastdateofsubs = html
-    //     .querySelectorAll(
-    //         'body > table > tbody > tr:nth-child(3) > td > table:nth-child(5) > tbody > tr:nth-child(2) > td:nth-child(5)')
-    //     .map((e) => e.innerHtml.trim())
-    //     .toList();
-
-    // final dateofopenings = html
-    //     .querySelectorAll(
-    //         'body > table > tbody > tr:nth-child(3) > td > table:nth-child(5) > tbody > tr:nth-child(2) > td:nth-child(6)')
-    //     .map((e) => e.innerHtml.trim())
-    //     .toList();
-
-    // ecltenderinfo = List.generate(
-    //   numbers.length,
-    //   (index) => Tender(
-    //       tendernumber: numbers[index],
-    //       title: titles[index],
-    //       lastdateofsub: lastdateofsubs[index],
-    //       dateofopening: dateofopenings[index]),
-    // );
-    print("https://secureloginecl.co.in/tenders/tender_details.php?pid=6&id=${datas[(0 * 7) + 6].split('=')[7].split("'")[0]}");
-    // print(datas.length ~/ 7);
-    // print(datas[(0 * 7) + 1].split('<')[1].split('>')[1]);
   }
 }

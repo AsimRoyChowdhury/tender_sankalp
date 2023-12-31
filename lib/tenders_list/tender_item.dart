@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:tender_sankalp/models/tender.dart';
 import 'package:url_launcher/link.dart';
-import 'package:url_launcher/url_launcher.dart';
+// import 'package:url_launcher/url_launcher.dart';
 
 class TenderItem extends StatelessWidget {
   const TenderItem(this.tender, {super.key});
@@ -29,7 +29,7 @@ class TenderItem extends StatelessWidget {
                     color: Colors.black,
                     fontWeight: FontWeight.w600),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Text(
@@ -39,7 +39,7 @@ class TenderItem extends StatelessWidget {
                     color: Colors.deepOrangeAccent,
                     fontWeight: FontWeight.bold),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               // Row(
@@ -100,7 +100,7 @@ class TenderItem extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Column(
